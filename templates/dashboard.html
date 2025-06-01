@@ -1,0 +1,91 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Dashboard | Daydream Travel{% endblock %}
+
+{% block header %}My Dashboard{% endblock %}
+{% block subheader %}Manage your travel bookings{% endblock %}
+
+{% block content %}
+<div class="content-card mb-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>My Bookings</h2>
+        <a href="/book" class="btn btn-primary">Book New Flight</a>
+    </div>
+    
+    {% if bookings %}
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <!-- In the bookings table section, update the columns to display travel details -->
+                <thead class="table-light">
+                    <tr>
+                        <th>Booking Reference</th>
+                        <th>Route</th>
+                        <th>Departure Date</th>
+                        <th>Passengers</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for booking in bookings %}
+                    <tr>
+                        <td>{{ booking.ref }}</td>
+                        <td>{{ booking.origin }} → {{ booking.destination }}</td>
+                        <td>{{ booking.depart_date }}</td>
+                        <td>{{ booking.passengers }}</td>
+                        <td>
+                            <a href="/cancel/{{ booking.ref }}" class="btn btn-sm btn-outline-danger" 
+                            onclick="return confirm('Are you sure you want to cancel this booking?')">
+                                Cancel
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <div class="alert alert-info">
+            <p class="mb-0">You have no bookings yet. Ready to plan your trip?</p>
+        </div>
+        <div class="text-center mt-4">
+            <a href="/book" class="btn btn-primary btn-lg">Book Your First Flight</a>
+        </div>
+    {% endif %}
+</div>
+
+<div class="row g-4">
+    <div class="col-md-4">
+        <div class="content-card h-100">
+            <h4>Travel Tips</h4>
+            <ul class="mb-0">
+                <li>Book 2-3 months in advance for best rates</li>
+                <li>Tuesday and Wednesday flights are often cheaper</li>
+                <li>Pack essentials in your carry-on luggage</li>
+                <li>Check-in online 24 hours before departure</li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="content-card h-100">
+            <h4>Customer Support</h4>
+            <p>Need assistance with your booking?</p>
+            <p>Our support team is available 24/7 to help you.</p>
+            <p class="mb-0"><strong>Email:</strong> support@daydreamtravel.com<br>
+               <strong>Phone:</strong> (555) 123-4567</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="content-card h-100">
+            <h4>Account Security</h4>
+            <p>Keep your account secure:</p>
+            <ul class="mb-0">
+                <li>Use a strong, unique password</li>
+                <li>Don't share your login details</li>
+                <li>Log out when using public computers</li>
+                <li>Update your password regularly</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

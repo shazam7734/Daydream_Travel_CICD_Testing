@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block title %}Book Your Flight | Daydream Travel{% endblock %}
+{% block header %}Book Your Flight{% endblock %}
+{% block subheader %}Where would you like to travel?{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+        <div class="content-card">
+            <div class="mb-4">
+                <div class="d-flex justify-content-between mb-3">
+                    <div class="step-indicator active">
+                        <span class="badge bg-primary">1</span> Travel Details
+                    </div>
+                    <div class="step-indicator">
+                        <span class="badge bg-secondary">2</span> Payment
+                    </div>
+                </div>
+                <div class="progress" style="height: 4px;">
+                    <div class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+            
+            <form method="post">
+                <input type="hidden" name="step" value="1">
+                
+                <div class="mb-3">
+                    <label for="origin" class="form-label">Origin</label>
+                    <input type="text" class="form-control" id="origin" name="origin" placeholder="City or Airport" required>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="destination" class="form-label">Destination</label>
+                    <input type="text" class="form-control" id="destination" name="destination" placeholder="Where do you want to go?" required>
+                </div>
+                
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="depart_date" class="form-label">Departure Date</label>
+                        <input type="date" class="form-control" id="depart_date" name="depart_date" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="return_date" class="form-label">Return Date</label>
+                        <input type="date" class="form-control" id="return_date" name="return_date">
+                        <div class="form-text">Leave empty for one-way flights</div>
+                    </div>
+                </div>
+                
+                <div class="mb-4">
+                    <label for="passengers" class="form-label">Number of Passengers</label>
+                    <select class="form-select" id="passengers" name="passengers" required>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </select>
+                </div>
+                
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-primary btn-lg">Continue to Payment</button>
+                </div>
+            </form>
+        </div>
+        <div class="text-center mt-3">
+            <a href="/dashboard" class="btn btn-outline-secondary">Back to Dashboard</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

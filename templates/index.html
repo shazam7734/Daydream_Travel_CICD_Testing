@@ -1,0 +1,93 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Welcome to Daydream Travel{% endblock %}
+
+{% block additional_css %}
+.hero {
+    min-height: 400px;
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 4rem 0;
+    margin-bottom: 3rem;
+}
+.feature-card {
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    height: 100%;
+    transition: transform 0.3s;
+}
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+{% endblock %}
+
+{% block header %}Explore the World{% endblock %}
+{% block subheader %}Discover amazing destinations with Daydream Travel{% endblock %}
+
+{% block content %}
+<div class="hero text-center d-flex align-items-center justify-content-center">
+    <div>
+        <h1 class="display-4 fw-bold">Your Dream Vacation Awaits</h1>
+        <p class="lead">Book your next adventure with confidence and ease</p>
+        <div class="mt-4">
+            {% if session.get('email') %}
+                <a href="/dashboard" class="btn btn-primary btn-lg px-4 me-3">My Dashboard</a>
+                <a href="/book" class="btn btn-outline-light btn-lg px-4">Book Now</a>
+            {% else %}
+                <a href="/login" class="btn btn-primary btn-lg px-4 me-3">Login</a>
+                <a href="/register" class="btn btn-outline-light btn-lg px-4">Register</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <h2 class="text-center mb-4">Why Choose Daydream Travel?</h2>
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card feature-card">
+                <div class="card-body text-center p-4">
+                    <div class="mb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="var(--primary-color)" class="bi bi-shield-check" viewBox="0 0 16 16">
+                            <path d="M5.338 1.59a61.44 61.44 0 0 0-2.837.856.481.481 0 0 0-.328.39c-.554 4.157.726 7.19 2.253 9.188a10.725 10.725 0 0 0 2.287 2.233c.346.244.652.42.893.533.12.057.218.095.293.118a.55.55 0 0 0 .101.025.615.615 0 0 0 .1-.025c.076-.023.174-.061.294-.118.24-.113.547-.29.893-.533a10.726 10.726 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067c-.53 0-1.552.223-2.662.524zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.775 11.775 0 0 1-2.517 2.453 7.159 7.159 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7.158 7.158 0 0 1-1.048-.625 11.777 11.777 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 62.456 62.456 0 0 1 5.072.56z"/>
+                            <path d="M10.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+                        </svg>
+                    </div>
+                    <h4>Secure Booking</h4>
+                    <p>Our payment system ensures your information is always protected.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card feature-card">
+                <div class="card-body text-center p-4">
+                    <div class="mb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="var(--primary-color)" class="bi bi-currency-dollar" viewBox="0 0 16 16">
+                            <path d="M4 10.781c.148 1.667 1.513 2.85 3.591 3.003V15h1.043v-1.216c2.27-.179 3.678-1.438 3.678-3.3 0-1.59-.947-2.51-2.956-3.028l-.722-.187V3.467c1.122.11 1.879.714 2.07 1.616h1.47c-.166-1.6-1.54-2.748-3.54-2.875V1H7.591v1.233c-1.939.23-3.27 1.472-3.27 3.156 0 1.454.966 2.483 2.661 2.917l.61.162v4.031c-1.149-.17-1.94-.8-2.131-1.718H4zm3.391-3.836c-1.043-.263-1.6-.825-1.6-1.616 0-.944.704-1.641 1.8-1.828v3.495l-.2-.05zm1.591 1.872c1.287.323 1.852.859 1.852 1.769 0 1.097-.826 1.828-2.2 1.939V8.73l.348.086z"/>
+                        </svg>
+                    </div>
+                    <h4>Best Price Guarantee</h4>
+                    <p>Find a lower price? We'll match it and give you an additional discount.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card feature-card">
+                <div class="card-body text-center p-4">
+                    <div class="mb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="var(--primary-color)" class="bi bi-headset" viewBox="0 0 16 16">
+                            <path d="M8 1a5 5 0 0 0-5 5v1h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a6 6 0 1 1 12 0v6a2.5 2.5 0 0 1-2.5 2.5H9.366a1 1 0 0 1-.866.5h-1a1 1 0 1 1 0-2h1a1 1 0 0 1 .866.5H11.5A1.5 1.5 0 0 0 13 12h-1a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h1V6a5 5 0 0 0-5-5z"/>
+                        </svg>
+                    </div>
+                    <h4>24/7 Support</h4>
+                    <p>Our travel experts are available around the clock to assist you.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

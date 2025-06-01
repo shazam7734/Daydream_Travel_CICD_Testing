@@ -1,0 +1,11 @@
+{
+    "john@example.com": {
+        "password": "Password1!"
+    },
+    "jane@example.com": {
+        "password": "SecurePass2@"
+    },
+    "alex@example.com": {
+        "password": "Testing123#"
+    }
+}
