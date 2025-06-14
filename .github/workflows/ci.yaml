@@ -101,7 +101,7 @@ jobs:
           pytest tests/ui --junitxml=ui-results.xml
 
       - name: Upload UI Test Results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ui-test-results
           path: ui-results.xml
