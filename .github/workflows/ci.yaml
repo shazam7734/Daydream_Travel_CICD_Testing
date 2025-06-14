@@ -28,7 +28,7 @@ jobs:
           pytest tests/unit --junitxml=unit-results.xml
 
       - name: Upload Unit Test Results
-        uses: actions/upload-artifact@v
+        uses: actions/upload-artifact@v4
         with:
           name: unit-test-results
           path: unit-results.xml
