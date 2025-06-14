@@ -28,7 +28,7 @@ jobs:
           pytest tests/unit --junitxml=unit-results.xml
 
       - name: Upload Unit Test Results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: unit-test-results
           path: unit-results.xml
@@ -68,7 +68,7 @@ jobs:
           pytest tests/integration --junitxml=integration-results.xml
 
       - name: Upload Integration Test Results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: integration-test-results
           path: integration-results.xml
