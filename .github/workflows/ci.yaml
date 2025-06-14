@@ -36,16 +36,7 @@ jobs:
   integration-tests:
     runs-on: ubuntu-latest
     needs: unit-tests
-    services:
-      flask-app:
-        image: python:3.9
-        ports:
-          - 5000:5000
-        options: >-
-          --health-cmd="curl --fail http://localhost:5000 || exit 1"
-          --health-interval=10s
-          --health-timeout=5s
-          --health-retries=5
+    
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
