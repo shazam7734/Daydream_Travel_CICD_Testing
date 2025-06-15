@@ -1,3 +1,29 @@
+# GitHub CI Workflow for Daydream Travel System
+#
+# This workflow handles the continuous integration pipeline for the Daydream Travel System,
+# performing unit tests and simulating deployment to a test environment.
+#
+# Triggers:
+# - When code is pushed to the main branch
+# - When a pull request is created targeting the main branch
+#
+# Jobs:
+# 1. unit-tests:
+#    - Runs on Ubuntu latest
+#    - Checks out the code
+#    - Sets up Python 3.9
+#    - Installs required dependencies
+#    - Executes unit tests and generates JUnit XML report
+#    - Uploads test results as an artifact
+#
+# 2. deploy:
+#    - Runs on Ubuntu latest
+#    - Depends on successful completion of unit-tests
+#    - Simulates deployment to a test environment
+#    - Currently contains a placeholder for the actual deployment command
+#
+# Note: The deployment step is currently a simulation. Replace the echo commands
+# with actual deployment instructions when moving to production.
 name: CI Pipeline for Daydream Travel System
 
 on:
